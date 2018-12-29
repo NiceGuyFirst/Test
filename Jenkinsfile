@@ -19,12 +19,12 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-        sh 'file a.txt'
+        sh 'file a.json'
     }
 
     stage("Push File") { 
        
-            sh 'cat a.jsonE | python -c "import sys,json;json.loads(sys.stdin.read());print \'OK\'"'
+            sh 'cat a.json | python -c "import sys,json;json.loads(sys.stdin.read());print \'OK\'"'
             
     }
     

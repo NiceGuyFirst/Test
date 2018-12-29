@@ -11,7 +11,7 @@ node {
         
         
         echo "Continuing with deployment"
-        echo '1234" > a.txt'
+        sh "echo version := 1.0.${env.BUILD_ID} >> a.txt"
       
     }
 

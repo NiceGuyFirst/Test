@@ -22,7 +22,7 @@ node {
         sh 'file a.txt'
     }
 
-    stage { 
+    stage("Push File") { 
        
             sh 'cat a.jsonE | python -c "import sys,json;json.loads(sys.stdin.read());print \'OK\'"'
             

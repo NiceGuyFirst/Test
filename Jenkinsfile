@@ -22,11 +22,10 @@ node {
         sh 'file a.txt'
     }
 
-    post { 
-        success { 
+    stage { 
+       
             sh 'cat a.jsonE | python -c "import sys,json;json.loads(sys.stdin.read());print \'OK\'"'
             
-        }
     }
     
 }

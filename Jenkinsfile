@@ -11,7 +11,7 @@ node {
         
         
         echo "Continuing with deployment"
-        sh 'echo {\\"version\\" : \\"1.0.${env.BUILD_ID}\\"} > a.json'
+        sh "echo {\\"version\\" : \\"1.0.${env.BUILD_ID}\\"} > a.json"
       
     }
 

@@ -10,7 +10,7 @@ node {
     stage('promotion'){
         def userInput = input(
             id: 'userInput', message: 'Let\'s promote?', parameters: [
-            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select scope A', name: 'Scope A']
+            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select scope A', name: 'Scope A'],
             [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']
             ])
             echo ("Scope A: "+userInput['Scope A'])

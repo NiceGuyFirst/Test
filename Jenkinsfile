@@ -13,7 +13,7 @@ node {
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select scope A', name: 'Scope A']
             [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']
             ])
-            echo ("Env: "+userInput['env'])
+            echo ("Scope A: "+userInput['Scope A'])
             echo ("Target: "+userInput['target'])
     }
     

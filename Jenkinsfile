@@ -6,7 +6,15 @@ node {
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select scope B', name: 'Scope B']
             ])
 
-    def userInput = input(
+    def agentA = input(
+            id: 'UserInput', message: 'Agent A', parameters: [
+            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select Agents', name: 'Agent A']            
+            ])
+    def agentB = input(
+            id: 'UserInput', message: 'Project Configurations', parameters: [
+            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select Agents', name: 'Agent B'],
+            ])
+        def userInput = input(
             id: 'UserInput', message: 'Project Configurations', parameters: [
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select Agents', name: 'Agent A'],
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select Agents', name: 'Agent B'],
@@ -26,8 +34,10 @@ node {
     }
     
     stage('Build File') {
-        if (userInput['Scope A'])
-            echo("Selected Agents: " + userInput['Agent A']) 
+        if (scopeInput['Scope A'])
+            echo("Selected Agents: " + agentA['Agent A']) 
+        if (scopeInput['Scope B'])
+            echo("Selected Agents: " + agentB['Agent B']) 
         
         echo "Continuing with deployment"
         sh "echo {\\\"version\\\" : \\\"1.0.${env.BUILD_ID}\\\"} > a.json"

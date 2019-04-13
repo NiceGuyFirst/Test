@@ -13,12 +13,12 @@ node {
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Select scope A', name: 'Scope A'],
             [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']
             ])
-            echo ("Scope A: "+userInput['Scope A'])
-            echo ("Target: "+userInput['target'])
+        echo ("Scope A: "+userInput['Scope A'])
+        echo ("Target: "+userInput['target'])
     }
     
     stage('Build File') {
-        
+        echo("Selected scope: " + userInput['Scope A']) 
         
         echo "Continuing with deployment"
         sh "echo {\\\"version\\\" : \\\"1.0.${env.BUILD_ID}\\\"} > a.json"

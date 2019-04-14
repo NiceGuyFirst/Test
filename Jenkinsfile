@@ -30,10 +30,13 @@ node {
     stage('Scope Selection'){
         
         echo ("Scope A: "+scopeInput['Scope A'])
-        echo ("Target: "+scopeInput['target'])
+        echo ("Scope B: "+scopeInput['Scope B'])
     }
     
     stage('Build File') {
+        echo (scopeInput)
+        echo (scopeInput['Scope A'])
+
         if (scopeInput['Scope A'])
             echo("Selected Agents: " + agentA['Agent A']) 
         if (scopeInput['Scope B'])
